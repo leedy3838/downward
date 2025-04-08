@@ -3,11 +3,11 @@ kind: Pod
 metadata:
   name: downward-env
   labels:
-    app: downward
+    app: downward-api
 spec:
   containers:
     - name: downward-container
-      image: yourdockerhub/downward_api:latest
+      image: ghcr.io/leedy3838/downward_api:latest
       ports:
         - containerPort: 5000
       env:
@@ -23,3 +23,4 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
+  restartPolicy: Never
